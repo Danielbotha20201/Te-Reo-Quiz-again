@@ -1,45 +1,63 @@
-name = input("Tena koe, what's your name? ")
+import random 
 
-z = input(f'Kia ora {name}, Would you like to participate in my Te Reo quiz? ')
+score = 0
+english =("Computer", "Lake", "Food","Radio","Build")
+right_anwser = ("Rorohiko", "Roto", "Kai","Reo irirangi","Hanga")
+option_1 = ("Aroha", "Hangi", "Kaumatua","Moana","Wahine")
+option_2 = ("Waiata", "Pounamu", "Whānau","Hīkoi","Tamariki")
 
-if z == "yes" or z == "y":
-  
- Q1 = input("What is the Te reo word for folder? ").lower()
- if Q1 == "":
-    print("Correct")
-  
- Q2 = input("What is the Te reo word for? ").lower()
- if Q2 == "":
-    print("Correct!")
+def generate_question(english, right_anwser, option_1, option_2):
+  global score
+  print("What is the correct word for", english, "in maori")
 
- Q3 = input("What is the Te reo word for? ").lower()
- if Q3 == "": 
-    print("Correct!")
+  random_sequence = random.randint(0,2)
 
- Q4 = input("What is the Te reo word for? ").lower()
- if Q4 == "":
-    print("Correct")
+  if(random_sequence == 0):
+    print("A", option_1)
+    print("B",option_2 )
+    print("C", right_anwser)
+    anwser = input().lower()
+    if anwser == "c":
+      score += 1
+    else:
+      print("incorrect")
+  elif(random_sequence == 1):
+    print("A", option_1)
+    print("B", right_anwser)
+    print("C", option_2)
+    anwser = input().lower()
+    if anwser == "b":
+      score += 1
+    else:
+      print("incorrect")
+  elif(random_sequence == 2):
+    print("A", right_anwser)
+    print("B", option_2)
+    print("C", option_1)
+    anwser = input().lower()
+    if anwser == "a":
+      score += 1
+    else:
+      print("incorrect")
+  elif(random_sequence == 3):
+    print("A", right_anwser)
+    print("B", option_2)
+    print("C", option_1)
+    anwser = input().lower()
+    if anwser == "a":
+      score += 1
+    else:
+      print("incorrect")
+  elif(random_sequence == 4):
+    print("A", right_anwser)
+    print("B", option_2)
+    print("C", option_1)
+    anwser = input().lower()
+    if anwser == "a":
+      score += 1
+    else:
+      print("incorrect")
+for i in range (0, 5):
+  generate_question(english[i],right_anwser[i],option_1[i],option_2[i])
 
- Q5 = input("What is the Te reo word for? ").lower()
- if Q5 == "":
-    print("Correct")
-
- Q6 = input("What is the Te reo word for? ").lower()
- if Q6 == "":
-    print("Correct")
-  
- Q7 = input("What is the Te reo word for? ").lower()
- if Q7 == "":
-    print("Correct!")
-
- Q8 = input("What is the Te reo word for?  ").lower()
- if Q8 == "": 
-    print("Correct!")
-
- Q9 = input("What is the Te reo word for? ").lower()
- if Q9 == "":
-    print("Correct")
-
- Q10 = input("What is the Te reo word for? ").lower()
- if Q10 == "":
-    print("Correct")
+print(score)
